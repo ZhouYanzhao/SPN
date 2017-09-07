@@ -2,7 +2,7 @@
 
 [![](https://img.shields.io/badge/torch-V1.0-green.svg)](https://github.com/ZhouYanzhao/SPN/tree/torch) [![](https://img.shields.io/badge/pytorch-coming-blue.svg)](#) [![](https://img.shields.io/badge/caffe-coming-red.svg)](#)
 
-[[Home]](http://yzhou.work) [[Project]](http://yzhou.work/SPN) [[Paper]](https://arxiv.org/pdf/1709.01829) [[More Resources]](http://yzhu.work/spn)
+[[Project]](http://yzhou.work/SPN) [[Paper]](https://arxiv.org/pdf/1709.01829) [[Supp]](http://yzhu.work/pdffiles/SPN_Supp.pdf) [[More Resources]](http://yzhu.work/spn)
 
 ![Illustration](illustration.png)
 
