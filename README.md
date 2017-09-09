@@ -73,7 +73,7 @@ You can setup everything via a single command `wget -O - https://git.io/v5wTS | 
     bash ./scripts/Train_PASCAL.sh
     ```
 
-7. visualize locating samples via [Exp/notebooks/vis.ipynb](Exp/notebooks/vis.ipynb)
+7. visualize locating samples via [demo/notebooks/vis.ipynb](https://github.com/ZhouYanzhao/SPN/blob/torch/demo/notebooks/vis.ipynb)
 ![Pointing localization](pointing.png)
 
 ### Troubleshooting
