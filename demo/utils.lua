@@ -41,6 +41,33 @@ function utils.makeDataParallelTable(model, gpus)
    return model
 end
 
+function utils.deepCopy(tbl)
+    -- creates a copy of a network with new modules and the same tensors
+    -- borrowed from fb.resnet.torch
+    local copy = {}
+    for k, v in pairs(tbl) do
+        if type(v) == 'table' then
+            copy[k] = utils.deepCopy(v)
+        else
+            copy[k] = v
+        end
+    end
+    if torch.typename(tbl) then
+        torch.setmetatable(copy, torch.typename(tbl))
+    end
+    return copy
+end
+
+function utils.saveCheckpoints(path, model)
+    -- don't save the DataParallelTable for easier loading on other machines
+   if torch.type(model) == 'nn.DataParallelTable' then
+      model = model:get(1)
+   end
+   -- create a clean copy on the CPU without modifying the original network
+   model = utils.deepCopy(model):float():clearState()
+   torch.save(path, model)
+end
+
 function utils.cast(data, mode)
     if mode == 'cpu' then
         return data:float()
@@ -280,7 +307,7 @@ function utils.train(opt, model, dataset, logger)
             bestSavePath = paths.concat(opt.savePath, string.format('%d-%.2f-%s.t7', state.epoch, currentAcc, os.date('%Y%m%d%H%M%S')))
             logger.notify = false
             logger:status('checkpoint saved at ' .. bestSavePath)
-            torch.save(bestSavePath, state.network:clearState())
+            utils.saveCheckpoints(bestSavePath, state.network:clearState())
             collectgarbage()
         end
         -- send notification 
@@ -322,7 +349,7 @@ function utils.train(opt, model, dataset, logger)
             logger:status(string.format('best model: %s', bestSavePath))
             logger.notify = true
             logger:status(string.format('[%s] all done. bestValidationAcc: %.2f', opt.note, bestValidationAcc))
-            torch.save(paths.concat(opt.savePath, 'model_best.t7'), state.network:clearState())
+            utils.saveCheckpoints(paths.concat(opt.savePath, 'model_best.t7'), state.network:clearState())
         end
     end
     
