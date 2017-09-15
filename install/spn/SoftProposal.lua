@@ -40,7 +40,7 @@ function SoftProposal:lazyInit(input)
     self.transferMatrix:resize(self.N, self.N)
     self.proposal:resize(self.nBatch, self.mH, self.mW)
     self.proposalBuffer:resize(self.mH, self.mW)
-    self.factor = self.factor or self.mW * 0.15
+    self.factor = self.factor or self.N * 0.15
     -- init distance metric
     self.distanceMetric:resize(self.N, self.N)
     input.spn.SP_InitDistanceMetric(self, self.distanceMetric, self.factor, self.mW, self.mH, self.N)
