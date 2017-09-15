@@ -20,7 +20,8 @@ function waiting {
 init enableSave true
 init notify "false"
 init maxEpoch 20
-init learningRateDecayRatio 0.5
+init epochStep '10'
+init learningRateDecayRatio 0.1
 init removeOldCheckpoints false
 init optimMethod "sgd"
 init learningRate 0.01
