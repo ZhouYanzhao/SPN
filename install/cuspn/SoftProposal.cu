@@ -67,7 +67,7 @@ __global__ void InitTransferMatrixKernel(
                 const float pntB = *(input_data + c * N + p * mW + q);
                 sum += (pntA - pntB) * (pntA - pntB);
             }
-            *(transferMatrix_data + n) = sqrt(sum) + *(distanceMetric_data + n);
+            *(transferMatrix_data + n) = sqrt(sum) * *(distanceMetric_data + n);
             *(transferMatrix_data + v*N + u) = *(transferMatrix_data + n);
         }
     }
