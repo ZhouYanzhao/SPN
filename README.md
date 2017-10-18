@@ -1,6 +1,6 @@
 <h1>Soft Proposal Networks<br>for Weakly Supervised Object Localization</h1>
 
-[![](https://img.shields.io/badge/torch-V1.0-green.svg)](https://github.com/ZhouYanzhao/SPN/tree/torch) [![](https://img.shields.io/badge/pytorch-coming-blue.svg)](#) [![](https://img.shields.io/badge/caffe-coming-red.svg)](#)
+[![](https://img.shields.io/badge/torch-V1.0-green.svg)](https://github.com/ZhouYanzhao/SPN/tree/torch) [![](https://img.shields.io/badge/pytorch-V1.0-blue.svg)](https://github.com/yeezhu/SPN.pytorch) [![](https://img.shields.io/badge/caffe-coming-red.svg)](#)
 
 [[Project]](http://yzhou.work/SPN) [[Paper]](https://arxiv.org/pdf/1709.01829) [[Supp]](http://yzhu.work/pdffiles/SPN_Supp.pdf) [[More Resources]](http://yzhu.work/spn)
 
@@ -80,7 +80,7 @@ You can setup everything via a single command `wget -O - https://git.io/v5wTS | 
 If you run into `error: identifier "THCudaBlas_Sgemv" is undefined` during installation, update Torch7 to the latest version via `cd <TORCH_DIR> && bash ./update.sh`
 
 ## PyTorch Implementation
-coming
+Check [here](https://github.com/yeezhu/SPN.pytorch).
 
 ## Caffe Implementation
 coming
